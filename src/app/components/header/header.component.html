@@ -1,0 +1,76 @@
+<header
+  class="bg-green-700 border-b-emerald-400 text-white px-4 py-3 shadow-md sticky top-0 z-50 flex items-center justify-between"
+>
+  <!-- Brand -->
+  <div class="flex items-center space-x-2">
+    <img
+      src="images/zanelogo.png"
+      alt="MyApp Logo"
+      class="w-18 filter invert brightness-50 h-14 rounded-full object-fit"
+    />
+ 
+  </div>
+
+  <!-- Desktop Links -->
+  <nav class="hidden md:flex items-center space-x-6">
+    <a
+      *ngFor="let item of menuItems"
+      routerLink="/"
+      class="hover:text-indigo-400 transition"
+    >
+      {{ item }}
+    </a>
+  </nav>
+
+  <!-- Desktop Buttons -->
+  <div class="hidden md:flex items-center space-x-3">
+    <button
+      mat-button
+    
+    >
+      Login
+    </button>
+    <button
+      mat-raised-button
+      color="primary"
+  
+    >
+      Get Started
+      <mat-icon class="ml-1 text-sm">arrow_forward</mat-icon>
+    </button>
+  </div>
+
+  <!-- Mobile Menu Toggle -->
+  <button
+    (click)="toggleMenu()"
+    class="md:hidden text-white focus:outline-none"
+  >
+    <mat-icon>{{ isMenuOpen() ? "close" : "menu" }}</mat-icon>
+  </button>
+</header>
+
+<!-- Mobile Menu -->
+<div
+  *ngIf="isMenuOpen()"
+  class="md:hidden bg-gray-900 text-white w-full shadow-md flex flex-col items-center space-y-2 py-4"
+>
+  <a
+    *ngFor="let item of menuItems"
+    routerLink="/"
+    class="w-full text-center py-2 hover:bg-gray-800 transition"
+  >
+    {{ item }}
+  </a>
+  <div class="w-full border-t border-gray-700 my-2"></div>
+  <button
+    class="w-full py-2 text-gray-300 hover:text-white transition rounded-full"
+  >
+    Login
+  </button>
+  <button
+    class="w-full py-2 bg-white text-gray-900 rounded-full font-medium hover:opacity-90 transition flex justify-center items-center gap-1"
+  >
+    Get Started
+    <mat-icon class="text-sm">arrow_forward</mat-icon>
+  </button>
+</div>

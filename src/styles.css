@@ -2,7 +2,16 @@
 @tailwind components;
 @tailwind utilities;
 
+@use '@angular/material' as mat;
+
 html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+body { margin: 0; font-family: "Nunito", sans-serif!important;}
 
-
+html {
+  color-scheme: light dark;
+  @include mat.theme((
+    color: mat.$green-palette,
+    typography: Roboto,
+    density: 0
+  ));
+}
